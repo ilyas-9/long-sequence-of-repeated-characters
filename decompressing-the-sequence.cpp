@@ -14,7 +14,7 @@ int main(){
             }
             num = 0;
 
-            for ( int k = i+2 ; str[k] != '.' ; k++){
+            for ( int k = i+1 ; str[k] != '.' ; k++){
                 num = num*10 + (str[k]-48);
                 pos = k+1;
             }
