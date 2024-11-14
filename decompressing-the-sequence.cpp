@@ -3,36 +3,27 @@
 using namespace std;
 
 int main(){
-    string str , s = "" , num = "";
+    string str , s = "";
+    int num = 0 , pos = 0;
     getline(cin,str);
-    int n = 0;
 
-    for ( int j, i = 0; i < (int)str.length() ; ){
-        if ( str[i] == ' '){
-            s.insert(s.end(),' ');
-            i++;
-            continue;
-        }
-            n = 1;
-        num.clear();
-        for (  j = i+1 ; j <= (int)str.length() ; j++){
-            if ( str[i] == str[j] && j<(int)str.length() ){
-                n++;
-            }else{
-                s.insert(s.end(),str[i]);
-                s.insert(s.end(),'*');
-                while ( n > 0 ){
-                    num.insert(num.begin(),n%10+48);
-                    n/=10;
-                }
-                for ( int k : num){
-                    s.insert(s.end(), k);
-                }
-                s.insert(s.end(),'.');
-                i=j;
-                break;
+    for (int i = 0 ; i < (int)str.length() ;i++){
+            if ( str[i] == ' '){
+                s.insert(s.end(),' ');
+                continue;
             }
-        }
+            num = 0;
+
+            for ( int k = i+2 ; str[k] != '.' ; k++){
+                num = num*10 + (str[k]-48);
+                pos = k+1;
+            }
+            for ( int k = 0 ; k < num ; k++){
+                s.insert(s.end(),str[i]);
+            }
+
+        i=pos;
+        pos = 0;
     }
     cout << s << endl;
 }
