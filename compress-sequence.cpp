@@ -22,7 +22,6 @@ int main(){
                 n++;
             }else{ // here whene the inserting begin .
                 s.insert(s.end(),str[i]);
-                s.insert(s.end(),'*');
                 while ( n > 0 ){ // this part converting the number into a string .
                     num.insert(num.begin(),n%10+48);
                     n/=10;
